@@ -1,0 +1,15 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SNAPLINK_BASE_URL: http://localhost:8000
+      SNAPLINK_RL_CAPACITY: "20"
+      SNAPLINK_RL_REFILL: "5"
+    volumes:
+      - snaplink-data:/data
+    restart: unless-stopped
+
+volumes:
+  snaplink-data:
